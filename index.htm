@@ -2,101 +2,23 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Wah adjul ultah</title>
+	<title>jInvertScroll Demo Page</title>
     <link rel="stylesheet" href="css/example.css" />
 </head>
 <body>
     
     
-    <div class="horizon scroll" style="background: url(images/sky.png) repeat-x; height: 100vh; z-index:1">
-        <img src="images/sky.png" alt="" />
+    <div class="horizon scroll" style=" background-image:url('images/bg.png');
+  background-repeat: repeat-x;">
+        <img src="images/bg.png" alt="" />
     </div>
-    <div class="middle scroll" style="background: url(images/mountains.png) repeat-x; height: 100vh; z-index:2">
-        <img src="images/mountains.png" alt="" />
-    </div> 
+    <div class="middle scroll">
+        <img src="images/HP_01.png" alt="" />
+    </div>
     <div class="front scroll">
-        <img id="car" src="images/car2.png" alt="" />
-    </div> 
-    <!--div class="character">
-        <img src="images/car2.png" alt="" />
-    </div-->
-    <div id="pop1" class="popbox">
-        <img src="a.jpg" alt="">
+        <img src="images/HP_02.png" alt="" />
     </div>
-    <div id="pop2" class="popbox">
-        <img src="b.png" alt="">
-    </div>
-    <div id="pop3" class="popbox">
-        <img src="c.png" alt="">
-    </div>
-    <div id="contents" class="scroll">
-        <section class="page" id="page-1">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop1">content1</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop2">content2</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop3">content3</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1>content4</h1></div> 
-        </section>
-        <section class="page">
-            <div class="content"><h1>content5</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content6</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content7</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content8</h1></div> 
-        </section>
-
-    </div>
-
-    <div id="contents2" class="scroll">
-        <section class="page" id="page-1">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop1">content9</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop2">content10</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1><a href="#" class="popper" data-popbox="pop3">content11</a></h1></div> 
-        </section>
-      
-        <section class="page">
-            <div class="content"><h1>content4</h1></div> 
-        </section>
-        <section class="page">
-            <div class="content"><h1>content5</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content6</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content7</h1></div> 
-            
-        </section>
-        <section class="page">
-            <div class="content"><h1>content8</h1></div> 
-        </section>
-        
-    </div>
-        
+    
     <script type="text/javascript" src="jquery.min.js"></script>
     <script type="text/javascript" src="jquery.jInvertScroll.js"></script>
     <script type="text/javascript">
@@ -109,54 +31,6 @@
             }
         });
     }(jQuery));
-    var moveLeft = 0;
-var moveDown = 0;
-$('a.popper').hover(function (e) {
-
-    var target = '#' + ($(this).attr('data-popbox'));
-    $(target).show();
-    moveLeft = $(this).outerWidth();
-    moveDown = ($(target).outerHeight() / 2);
-}, function () {
-    var target = '#' + ($(this).attr('data-popbox'));
-    if (!($("a.popper").hasClass("show"))) {
-        $(target).hide();
-    }
-});
-
-$('a.popper').mousemove(function (e) {
-    var target = '#' + ($(this).attr('data-popbox'));
-
-    leftD = e.pageX + parseInt(moveLeft);
-    maxRight = leftD + $(target).outerWidth();
-    windowLeft = $(window).width() - 40;
-    windowRight = 0;
-    maxLeft = e.pageX - (parseInt(moveLeft) + $(target).outerWidth() + 20);
-
-    if (maxRight > windowLeft && maxLeft > windowRight) {
-        leftD = maxLeft;
-    }
-
-    topD = e.pageY - parseInt(moveDown);
-    maxBottom = parseInt(e.pageY + parseInt(moveDown) + 20);
-    windowBottom = parseInt(parseInt($(document).scrollTop()) + parseInt($(window).height()));
-    maxTop = topD;
-    windowTop = parseInt($(document).scrollTop());
-    if (maxBottom > windowBottom) {
-        topD = windowBottom - $(target).outerHeight() - 20;
-    } else if (maxTop < windowTop) {
-        topD = windowTop + 20;
-    }
-
-    $(target).css('top', topD).css('left', leftD);
-});
-$('a.popper').click(function (e) {
-    var target = '#' + ($(this).attr('data-popbox'));
-    if (!($(this).hasClass("show"))) {
-        $(target).show();
-    }
-    $(this).toggleClass("show");
-});
     </script>
 </body>
 </html>
