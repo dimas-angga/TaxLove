@@ -5,8 +5,6 @@
 *	License:
 *	The MIT License (MIT)
 *
-*	@version 0.8.2
-*
 *   Copyright (c) 2013 pixxelfactory
 *   
 *   Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,9 +25,7 @@
 *   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 *   THE SOFTWARE.
 **/
-(function ($) {
-    'use strict';
-
+(function($) {
     $.jInvertScroll = function(sel, options) {
         var defaults = {
             width: 'auto',		    // The horizontal container width
@@ -45,20 +41,22 @@
             return;
         }
         
-        var elements = [],
-            longest = 0,
-            totalHeight,
-            winHeight,
-            winWidth;
+        var elements = [];
+        var longest = 0;
         
         // Extract all selected elements from dom and save them into an array
         $.each(sel, function(i, val) {
             $(val).each(function(e) {
-                elements.push($(this));
+                var tmp = {
+                    width: $(this).width(),
+                    height: $(this).height(),
+                    el: $(this)
+                }
                 
-                var w = $(this).width();
-                if(longest < w) {
-                    longest = w;
+                elements.push(tmp);
+                
+                if(longest < tmp.width) {
+                    longest = tmp.width;
                 }
             });
         });
@@ -75,32 +73,25 @@
         // Set the body to the selected height
         $('body').css('height', config.height+'px');
         
-        $([document, window]).on('ready resize', function (e) {
-            totalHeight = $(document).height();
-            winHeight = $(this).height();
-            winWidth = $(this).width();
-        });
-
         // Listen for the actual scroll event
-        $(window).on('scroll resize', function (e) {
+        $(window).on('scroll resize', function(e) {
             var currY = $(this).scrollTop();
+            var totalHeight = $(document).height();
+            var winHeight = $(this).height();
+            var winWidth = $(this).width();
             
             // Current percentual position
-            var scrollPercent = (currY / (totalHeight - winHeight)).toFixed(4);
+            var percent = (currY / (totalHeight - winHeight)).toFixed(4);
             
             // Call the onScroll callback
             if(typeof config.onScroll === 'function') {
-                config.onScroll.call(this, scrollPercent);
+                config.onScroll.call(this, percent);
             }
             
             // do the position calculation for each element
-            $.each(elements, function (i, el) {
-                var deltaW = el.width() - winWidth;
-                if (deltaW <= 0) {
-                    deltaW = el.width();
-                }
-                var pos = Math.floor(deltaW * scrollPercent) * -1;
-                el.css('left', pos);
+            $.each(elements, function(i, el) {
+                var pos = Math.floor((el.width - winWidth) * percent) * -1;
+                el.el.css('left', pos);
             });
         });
     };

@@ -1,0 +1,16 @@
+UKURAN REGISTER
+BG_H: 1,351px x 770px (nutupin background)
+
+REG_01: 866px x 590px
+(sampai dengan REG_04 ukuran sama)
+
+REG_01B: 593px x 473px
+
+REG_01C: 617px x 464px
+
+BUTTON:
+BUTREG_01 dan BUTREG_02: 108px x 46px
+
+BUTREG_03: 123px x 46px
+
+jarak perbutton: 17 px

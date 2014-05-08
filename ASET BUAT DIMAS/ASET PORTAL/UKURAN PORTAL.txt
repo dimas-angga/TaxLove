@@ -1,0 +1,10 @@
+UKURAN PORTAL
+PO_Head: 625px x 147px
+
+POBU_01 sampai POBU_04, POBU_HOV01 sampai POBU_HOV04 dan POBU_ON01 sampai POBU_ON04: 250px x 66px
+
+POBU_05, POBU_HOV05 dan POBU_ON05: 250px x 163px
+
+jarak antar button: 
+samping/lebar: 21 px
+bawah/panjang: 31px

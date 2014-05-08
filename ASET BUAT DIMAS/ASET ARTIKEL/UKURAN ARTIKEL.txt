@@ -1,0 +1,16 @@
+UKURAN ARTIKEL
+
+AR_HEAD: 496px x 42px
+
+AR_BOTTOM:673px x 63px
+
+Button2 besar nya:
+177px x 194px
+Jarak antar button: 57 px
+
+
+Button2 kecil nya:
+86px x 78px
+Jarak antar button: 31 px
+
+UNtuk konten, karena ukuran berbeda-beda, patokannya 59px dari kanan dan (kurang lebih) 83 px dari atas (tapi gak fix)
