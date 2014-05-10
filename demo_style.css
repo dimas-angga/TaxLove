@@ -124,9 +124,13 @@ h1
 
 .back2
 {
-	margin-top: 0vh;
+	margin-top: 10vh;
 	margin-left: 0vw;
-	height: 81vh;
-	width: 818.1vw;
+	height: 90vh;
+	width: 900vw;
 	//margin-bottom: 0vh;
 }
+
+body#page1 a#page1nav, body#page2 a#page2nav {
+	color: #fff;
+background: #930;
