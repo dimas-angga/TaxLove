@@ -2,23 +2,14 @@ body
 {
 	padding:0px; margin:0px;
 	text-align:center;
+	height: 90vh;
 }
 
 h1
 {
-	//background-color: rgba(82,96,117,0.5);
 	-webkit-background-clip: text;
 	color: white;
-	//text-shadow: rgba(255,255,255,0.5) 0 5px 6px;
-	//margin:0px auto;
-	//margin-top:20px;
 	font-family:Calibri;
-	//font-weight:bold;
-	//font-size:66px;
-	//border-top:1px dashed #dfdfdf;
-	//border-bottom:1px dashed #dfdfdf;
-	//padding:20px;
-	//width:700px;
 	text-align:center;
 	z-index: 4;
 	position: absolute;
