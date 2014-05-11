@@ -162,7 +162,7 @@ background-image: -moz-linear-gradient(
 	width: 200vh;
 	margin-top:85vh;
 	margin-left: -69vw;
-	z-index:4;
+	z-index:5;
 	position: fixed;
 }
 
@@ -172,7 +172,7 @@ background-image: -moz-linear-gradient(
 	width: 100vw;
 	top:86vh;
 	
-	z-index:5;
+	z-index:6;
 	position: fixed;
 	display:block;
 margin:30 auto;

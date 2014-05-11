@@ -8,7 +8,6 @@
 		<link href='http://fonts.googleapis.com/css?family=Dancing+Script:regular,bold&v1' rel='stylesheet' type='text/css'>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 		<script src="jquery.horizontal.scroll.js" type="text/javascript"></script>
-		<script src="plugins.js" type="text/javascript"></script>
 		
 		<script type="text/javascript">
 		
@@ -18,18 +17,39 @@
 			});
 		
 		</script>
-		<script type="text/javascript" src="jquery.jInvertScroll.js"></script>
-    <script type="text/javascript">
-   $("#button").click(function() {
-    var offset = 20; //Offset of 20px
-
-    $('html, body').animate({
-        scrollTop: $("#elementtoScrollToID").offset().top + offset
-    }, 2000);
-});
-    </script>
 		
-				
+		<script type="text/javascript" src="jquery.scrollTo.min.js"></script>
+	<script type="text/javascript" src="jquery.localScroll.js"></script>
+	<script type="text/javascript">
+		jQuery(function( $ ){
+			/**
+			 * Most jQuery.localScroll's settings, actually belong to jQuery.ScrollTo, check it's demo for an example of each option.
+			 * @see http://flesler.demos.com/jquery/scrollTo/
+			 * You can use EVERY single setting of jQuery.ScrollTo, in the settings hash you send to jQuery.LocalScroll.
+			 */
+			
+			// The default axis is 'y', but in this demo, I want to scroll both
+			// You can modify any default like this
+			$.localScroll.defaults.axis = 'xy';
+			
+			/**
+			 * NOTE: I use $.localScroll instead of $('#navigation').localScroll() so I
+			 * also affect the >> and << links. I want every link in the page to scroll.
+			 */
+			$.localScroll({
+				target: '#content', // could be a selector or a jQuery object too.
+				queue:true,
+				duration:1000,
+				hash:true,
+				onBefore:function( e, anchor, $target ){
+					// The 'this' is the settings object, can be modified
+				},
+				onAfter:function( anchor, settings ){
+					// The 'this' contains the scrolled element (#content)
+				}
+			});
+		});
+	</script>		
 	</head>
 	<body>
 				
@@ -41,10 +61,11 @@
         			<img class="back" src="images/bg.png" alt="" style="position:absolute; z-index:1; left:0;"/>
         			<img class="back2" src="images/HP_01.png" alt="" style="position:absolute; z-index:2;left:0;" />
         			<img class="back2" src="images/HP_02.png" alt="" style="position:absolute; z-index:3;left:0;"  />
+        			<img class="back2" src="images/HP_03.png" alt="" style="position:absolute; z-index:4;left:0;"  />
         		    
         		    
 					<section id="page1">
-						<img class="logo" src="images/P_01.png" alt="" style="position:absolute; z-index:4;left:0;"  />
+						<img class="logo" src="images/P_01.png" alt="" style="position:absolute; z-index:5;left:0;"  />
 
 						<img class="bar" src="images/Bi_01.png" alt=""   />
 						
@@ -52,25 +73,25 @@
 						<ul class="buttonblack">
 							<li >
 								<a href="#page1" id="page1nav">
-								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="" style="z-index:5;"></a>
+								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="" style="z-index:6;"></a>
 							</li>
 							<li>
-								<a href="#page2" id="page2nav"><img class="buttonblacksmall"  src="images/Bi_03.png" alt="" style="z-index:5;"></a>
+								<a href="#page2" id="page2nav"><img class="buttonblacksmall"  src="images/Bi_03.png" alt="" style="z-index:6;"></a>
 							</li>
 							<li>
-								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="">
+								<a href="#page3"><img class="buttonblacksmall"  src="images/Bi_03.png" alt=""></a>
 							</li>
 							<li>
-								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="">
+								<a href="#page4"><img class="buttonblacksmall"  src="images/Bi_03.png" alt=""></a>
 							</li>
 							<li>
-								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="">
+								<a href="#page5"><img class="buttonblacksmall"  src="images/Bi_03.png" alt=""></a>
 							</li>
 							<li>
-								<img class="buttonblacksmall" src="images/Bi_03.png" alt="">
+								<a href="#page6"><img class="buttonblacksmall" src="images/Bi_03.png" alt=""></a>
 							</li>
 							<li>
-								<img class="buttonblacksmall"  src="images/Bi_03.png" alt="">
+								<a href="#page7"><img class="buttonblacksmall"  src="images/Bi_03.png" alt=""></a>
 							</li>
 						</ul>
 
